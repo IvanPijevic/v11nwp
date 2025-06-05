@@ -6,6 +6,13 @@ protected: // create from serialization only
 	Cv11View();
 	DECLARE_DYNCREATE(Cv11View)
 
+public:
+	CRect rc;
+	COLORREF color;
+	COLORREF color_copy;
+	int shape;
+	int shape_copy;
+
 // Attributes
 public:
 	Cv11Doc* GetDocument() const;
@@ -38,7 +45,13 @@ protected:
 	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	DECLARE_MESSAGE_MAP()
+
 public:
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnShape();
+	afx_msg void OnColor();
+	afx_msg LRESULT OnHighlightRibbonListItem(WPARAM wParam, LPARAM lParam);
+
 };
 
 #ifndef _DEBUG  // debug version in v11View.cpp
